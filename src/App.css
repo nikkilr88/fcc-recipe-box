@@ -1,0 +1,61 @@
+body {
+  background: whitesmoke;
+  font-family: sans-serif;
+  overflow-y: scroll;
+}
+
+.newRecipe {
+  margin: 0 auto;
+  background: white;
+  width: 275px;
+  padding: 10px;
+  text-align: center;
+}
+
+.newRecipe input {
+  width: 90%;
+  margin: 5px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.recipe {
+  margin: 25px  auto;
+  padding: 0;
+  display: block;
+  width: 300px;
+  background: none;
+}
+
+
+
+.recipe li {
+  list-style-type: none;
+  background: white;
+  display: block;
+  width: 300px;
+  margin: 25px 0;
+}
+
+.title {
+  background: #333;
+  display: block;
+  padding: 10px;
+  color: whitesmoke;
+  border-radius: 3px
+}
+
+.ingredients {
+  display: none;
+}
+
+.ingredients ul {
+  margin: 0;
+  padding: 0;
+}
+
+.ingredients  li {
+  width: auto;
+  margin: 0;
+  padding: 5px;
+}
