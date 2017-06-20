@@ -1,3 +1,5 @@
+/* global $ */
+
 import React from 'react';
 import './App.css';
 
@@ -5,6 +7,13 @@ class RecipeBox extends React.Component {
   constructor(props) {
     super();
     this.deleteRecipe = this.deleteRecipe.bind(this);
+  }
+  
+   componentDidMount() {
+    $('.recipe').on('click','.title', function() {
+      $(this).parent().find('.ingredients').css('display') === 'none' ?
+      $(this).parent().find('.ingredients').show(100) : $(this).parent().find('.ingredients').hide(100)
+    });
   }
   
   deleteRecipe(el) {

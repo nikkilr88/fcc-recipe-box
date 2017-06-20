@@ -22,13 +22,6 @@ class App extends React.Component{
     this.handleDelete = this.handleDelete.bind(this);
   }
   
-  componentDidMount() {
-    $('.recipe').on('click','.title', function() {
-      $(this).parent().find('.ingredients').css('display') === 'none' ?
-      $(this).parent().find('.ingredients').show(100) : $(this).parent().find('.ingredients').hide(100)
-    });
-  }
-  
   handleChange(e) {
 		this.setState({
 			ingredients: e.target.value
