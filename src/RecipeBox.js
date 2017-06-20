@@ -8,13 +8,14 @@ class RecipeBox extends React.Component {
   }
   
   deleteRecipe(el) {
-    var value = el.target.parentNode.querySelector('span').innerText;
+    var value = el.target.parentNode.getAttribute("id")
+    console.log(value)
     this.props.handleDelete(value);
   }
   
   render() {
   const recipes = this.props.recipes.map( (recipe, i) => {
-    return <li  key={i}><span className="title">{recipe.title}</span><span className="ingredients">{recipe.ingredients.map(function(item){return <li>{item}</li>})}</span><button onClick={this.deleteRecipe}>X</button></li>
+    return <li  key={i} id={i}><span className="title">{recipe.title}</span><ul className="ingredients">{recipe.ingredients.map(function(item,i){return <li key={i}>{item}</li>})}</ul><button onClick={this.deleteRecipe}>X</button></li>
 		});
     return (
       <ul className="recipe">

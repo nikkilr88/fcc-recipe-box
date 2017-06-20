@@ -55,13 +55,15 @@ class App extends React.Component{
       recipes: updatedRecipes
 		});
 		
+		console.log(this.state.recipes)
+		
 		$('#dish').val('');
     $('#ingredients').val('');
 	}
   
-  handleDelete(text) {
+  handleDelete(value) {
     var updatedRecipes = this.state.recipes;
-    updatedRecipes.splice(updatedRecipes.indexOf(text), 1);
+    delete updatedRecipes[value];
     this.setState({
       recipes: updatedRecipes
     });
