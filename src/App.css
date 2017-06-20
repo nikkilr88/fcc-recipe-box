@@ -30,11 +30,18 @@ body {
 
 
 .recipe li {
+  position: relative;
   list-style-type: none;
   background: white;
   display: block;
   width: 300px;
   margin: 25px 0;
+}
+
+.recipe li button {
+  position: absolute;
+  top: 8px;
+  right: 5px;
 }
 
 .title {

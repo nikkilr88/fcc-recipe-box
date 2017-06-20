@@ -19,6 +19,7 @@ class App extends React.Component{
     this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleChange = this.handleChange.bind(this);
     this.handleTitle = this.handleTitle.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
   
   componentDidMount() {
@@ -45,14 +46,26 @@ class App extends React.Component{
   }
   
   handleSubmit() {
-    this.state.recipes.unshift({title: this.state.title, ingredients: this.state.ingredientsArr});
-    $('#dish').val('');
-    $('#ingredients').val('');
+    var updatedRecipes = this.state.recipes;
+    updatedRecipes.unshift({title: this.state.title, ingredients: this.state.ingredientsArr});
+  
     this.setState({
 			title: '',
-      ingredients: ''
+      ingredients: '',
+      recipes: updatedRecipes
 		});
+		
+		$('#dish').val('');
+    $('#ingredients').val('');
 	}
+  
+  handleDelete(text) {
+    var updatedRecipes = this.state.recipes;
+    updatedRecipes.splice(updatedRecipes.indexOf(text), 1);
+    this.setState({
+      recipes: updatedRecipes
+    });
+  }
   
   render() {
     return (
@@ -68,6 +81,7 @@ class App extends React.Component{
           title={this.state.title} 
           ingredients={this.state.ingredients} 
           recipes={this.state.recipes}
+          handleDelete={this.handleDelete}
         />
       </div>
     );
