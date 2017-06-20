@@ -27,8 +27,6 @@ body {
   background: none;
 }
 
-
-
 .recipe li {
   position: relative;
   list-style-type: none;
@@ -38,15 +36,23 @@ body {
   margin: 25px 0;
 }
 
-.recipe li button {
+.recipe li input[type=button] {
   position: absolute;
-  top: 10px;
-  height: 20px;
-  width: 20px;
-  right: 10px;
+  top: 7px;
+  height: 25px;
+  width: 25px;
+  right: 5px;
   border: none;
-  border-radius: 100%;
-  color: #555;
+  background: none;
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+  font-size: 16px;
+  font-family: "FontAwesome";
+}
+
+.recipe li input[type=button]:hover {
+  cursor: pointer;
+  color: #9b2626;
 }
 
 .title {
@@ -59,12 +65,9 @@ body {
 }
 
 .ingredients {
-  display: none;
-}
-
-.ingredients ul {
   margin: 0;
-  padding: 0;
+  padding: 0 0 0 10px;
+  display: none;
 }
 
 .ingredients  li {
