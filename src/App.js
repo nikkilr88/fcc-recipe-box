@@ -62,6 +62,11 @@ class App extends React.Component{
     });
   }
   
+  handleEdit(e) {
+    var value = e.target.parentNode.getAttribute("id");
+    console.log(value);
+  }
+  
   render() {
     return (
       <div>
@@ -77,6 +82,7 @@ class App extends React.Component{
           ingredients={this.state.ingredients} 
           recipes={this.state.recipes}
           handleDelete={this.handleDelete}
+          handleEdit={this.handleEdit}
         />
       </div>
     );
