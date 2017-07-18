@@ -5,6 +5,7 @@ import './App.css';
 import AddRecipe from './AddRecipe';
 import RecipeBox from './RecipeBox';
 
+var index;
 
 class App extends React.Component{
   
@@ -21,6 +22,7 @@ class App extends React.Component{
     this.handleTitle = this.handleTitle.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
+    this.submitEdit = this.submitEdit.bind(this);
   }
   
   handleChange(e) {
@@ -65,11 +67,25 @@ class App extends React.Component{
   
   handleEdit(e) {
     var value = e.target.parentNode.getAttribute("id");
+    index = value;
     console.log(value);
     this.setState({
       title: this.state.recipes[value].title,
       ingredients: this.state.recipes[value].ingredients
     });
+  }
+  
+  submitEdit(){
+    var updatedRecipes = this.state.recipes;
+    updatedRecipes[index].title=this.state.title;
+    updatedRecipes[index].ingredients=this.state.ingredients.split(',');
+    
+    this.setState({
+      title: '',
+      ingredients: '',
+      recipes: updatedRecipes
+    });
+
   }
   
   render() {
@@ -81,6 +97,8 @@ class App extends React.Component{
           handleChange={this.handleChange} 
           handleTitle={this.handleTitle}
           handleSubmit={this.handleSubmit}
+          submitEdit={this.submitEdit}
+
         />
         <RecipeBox 
           title={this.state.title} 
