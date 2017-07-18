@@ -24,7 +24,7 @@ class RecipeBox extends React.Component {
   
   render() {
   const recipes = this.props.recipes.map( (recipe, i) => {
-    return <li  key={i} id={i}><span className="title">{recipe.title}<input class="del" type="button" onClick={this.deleteRecipe} value="&#xf014;"/><input class="edit" type="button" value="Edit" /></span><ul className="ingredients">{recipe.ingredients.map(function(item,i){return <li key={i}>{item}</li>})}</ul></li>
+    return <li  key={i} id={i}><span className="title">{recipe.title}</span><input className="del" type="button" onClick={this.deleteRecipe} value="&#xf014;"/><input className="edit" type="button" value="Edit" /><ul className="ingredients">{recipe.ingredients.map(function(item,i){return <li key={i}>{item}</li>})}</ul></li>
 		});
     return (
       <ul className="recipe">

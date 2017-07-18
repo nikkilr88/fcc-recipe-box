@@ -39,13 +39,22 @@ body {
 .recipe li input[type=button] {
   /*height: 25px;*/
   /*width: 25px;*/
-  float: right;
+  position: absolute;
+  top: 7px;
   background: none;
   border: none;
   color: rgba(255,255,255,0.5);
   text-align: center;
   font-size: 16px;
   font-family: "FontAwesome";
+}
+
+.del {
+  right: 5px;
+}
+
+.edit {
+  right: 25px;
 }
 
 .recipe li input[type=button]:hover {
