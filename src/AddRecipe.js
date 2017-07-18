@@ -15,6 +15,7 @@ class AddRecipe extends React.Component {
         <input type="text" id="ingredients" placeholder="Ingredients, seperated by commas" value={this.props.ingredients} onChange={this.props.handleChange}/>
         
         <button id="save" onClick={this.props.handleSubmit} >Save</button>
+        <button onClick={this.props.submitEdit}>Save Edit</button>
         
       </div>
     );
