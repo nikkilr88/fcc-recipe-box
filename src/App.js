@@ -20,6 +20,7 @@ class App extends React.Component{
 		this.handleChange = this.handleChange.bind(this);
     this.handleTitle = this.handleTitle.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
   }
   
   handleChange(e) {
@@ -65,6 +66,10 @@ class App extends React.Component{
   handleEdit(e) {
     var value = e.target.parentNode.getAttribute("id");
     console.log(value);
+    this.setState({
+      title: this.state.recipes[value].title,
+      ingredients: this.state.recipes[value].ingredients
+    });
   }
   
   render() {
