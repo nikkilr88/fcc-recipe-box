@@ -12,11 +12,25 @@ body {
   text-align: center;
 }
 
-.newRecipe input {
+.newRecipe input[type="text"] {
   width: 90%;
   margin: 5px;
   padding: 10px;
   box-sizing: border-box;
+}
+
+.newRecipe button {
+  border: none;
+  margin: 5px;
+  background: #4286f4;
+  color: whitesmoke;
+  padding: 5px;
+  border-radius: 3px;
+  outline: none;
+}
+
+.newRecipe button:hover {
+  cursor: pointer;
 }
 
 .recipe {
@@ -36,30 +50,32 @@ body {
   margin: 25px 0;
 }
 
-.recipe li input[type=button] {
+.recipe li input[type="button"] {
   /*height: 25px;*/
   /*width: 25px;*/
   position: absolute;
-  top: 7px;
   background: none;
   border: none;
-  color: rgba(255,255,255,0.5);
+  color: whitesmoke;
   text-align: center;
   font-size: 16px;
   font-family: "FontAwesome";
+  opacity: 0.3;
 }
 
 .del {
   right: 5px;
+  top: 7px;
 }
 
 .edit {
   right: 25px;
+  top: 8px;
 }
 
 .recipe li input[type=button]:hover {
   cursor: pointer;
-  color: #9b2626;
+  opacity: 1;
 }
 
 .title {
