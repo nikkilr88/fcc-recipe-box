@@ -42,7 +42,7 @@ class App extends React.Component{
   
   handleSubmit() {
     var updatedRecipes = this.state.recipes;
-    updatedRecipes.push({title: this.state.title, ingredients: this.state.ingredientsArr});
+    updatedRecipes.unshift({title: this.state.title, ingredients: this.state.ingredientsArr});
   
     this.setState({
 			title: '',
