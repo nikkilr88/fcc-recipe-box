@@ -42,7 +42,7 @@ class App extends React.Component{
   
   handleSubmit() {
     var updatedRecipes = this.state.recipes;
-    updatedRecipes.unshift({title: this.state.title, ingredients: this.state.ingredientsArr});
+    updatedRecipes.push({title: this.state.title, ingredients: this.state.ingredientsArr});
   
     this.setState({
 			title: '',
@@ -64,10 +64,9 @@ class App extends React.Component{
     });
   }
   
-  handleEdit(e) {
-    var index = this.state.index;
+  handleEdit(index) {
     this.setState({
-      index: e.target.parentNode.getAttribute("id"),
+      index: index,
       title: this.state.recipes[index].title,
       ingredients: this.state.recipes[index].ingredients
     });
@@ -75,6 +74,7 @@ class App extends React.Component{
   
   submitEdit(){
     var index = this.state.index;
+
     console.log(typeof this.state.ingredients);
     var updatedRecipes = this.state.recipes;
     updatedRecipes[index].title=this.state.title;
