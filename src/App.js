@@ -76,10 +76,16 @@ class App extends React.Component{
   }
   
   submitEdit(){
+    console.log(typeof this.state.ingredients);
     var updatedRecipes = this.state.recipes;
     updatedRecipes[index].title=this.state.title;
-    updatedRecipes[index].ingredients=this.state.ingredients.split(',');
     
+    if(typeof this.state.ingredients === "string") {
+      updatedRecipes[index].ingredients=this.state.ingredients.split(',');
+    } else {
+      updatedRecipes[index].ingredients=this.state.ingredients;
+    }
+
     this.setState({
       title: '',
       ingredients: '',
