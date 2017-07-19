@@ -7,6 +7,7 @@ class RecipeBox extends React.Component {
   constructor(props) {
     super();
     this.deleteRecipe = this.deleteRecipe.bind(this);
+    this.editRecipe = this.editRecipe.bind(this);
   }
   
    componentDidMount() {
@@ -22,12 +23,17 @@ class RecipeBox extends React.Component {
     this.props.handleDelete(value);
   }
   
+  editRecipe(e){
+    var index = e.target.parentNode.getAttribute("id");
+    this.props.handleEdit(index);
+  }
+  
   render() {
   const recipes = this.props.recipes.map( (recipe, i) => {
     return <li  key={i} id={i}>
       <span className="title">{recipe.title}</span>
       <input className="del" type="button" onClick={this.deleteRecipe} value="&#xf014;"/>
-      <input className="edit" type="button" onClick={this.props.handleEdit} value="&#xf044;" />
+      <input className="edit" type="button" onClick={this.editRecipe} value="&#xf044;" />
         <ul className="ingredients">{recipe.ingredients.map(function(item,i){
           return <li key={i}>{item}</li>})}</ul>
       </li>
