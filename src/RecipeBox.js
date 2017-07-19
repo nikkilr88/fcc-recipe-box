@@ -26,6 +26,11 @@ class RecipeBox extends React.Component {
   editRecipe(e){
     var index = e.target.parentNode.getAttribute("id");
     this.props.handleEdit(index);
+    this.showEditBox();
+  }
+  
+  showEditBox() {
+    $('.newRecipe').show("slow");
   }
   
   render() {
