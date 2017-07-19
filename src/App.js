@@ -54,6 +54,7 @@ class App extends React.Component{
 		
 		$('#dish').val('');
     $('#ingredients').val('');
+    this.hideEditBox();
 	}
   
   handleDelete(value) {
@@ -92,6 +93,13 @@ class App extends React.Component{
     });
 
   }
+  showEditBox() {
+    $('.newRecipe').show("slow");
+  }
+  
+  hideEditBox() {
+    $('.newRecipe').hide("slow");
+  }
   
   render() {
     return (
@@ -103,6 +111,8 @@ class App extends React.Component{
           handleTitle={this.handleTitle}
           handleSubmit={this.handleSubmit}
           submitEdit={this.submitEdit}
+          showEditBox={this.showEditBox}
+          hideEditBox={this.hideEditBox}
 
         />
         <RecipeBox 
@@ -111,6 +121,8 @@ class App extends React.Component{
           recipes={this.state.recipes}
           handleDelete={this.handleDelete}
           handleEdit={this.handleEdit}
+          showEditBox={this.showEditBox}
+          hideEditBox={this.hideEditBox}
         />
       </div>
     );
