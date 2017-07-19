@@ -5,13 +5,12 @@ import './App.css';
 import AddRecipe from './AddRecipe';
 import RecipeBox from './RecipeBox';
 
-var index;
-
 class App extends React.Component{
   
   constructor(props) {
     super(props);
     this.state = {
+      index: 0,
       title: '',
       ingredients: '',
       ingredientsArr: [],
@@ -66,16 +65,16 @@ class App extends React.Component{
   }
   
   handleEdit(e) {
-    var value = e.target.parentNode.getAttribute("id");
-    index = value;
-    console.log(value);
+    var index = this.state.index;
     this.setState({
-      title: this.state.recipes[value].title,
-      ingredients: this.state.recipes[value].ingredients
+      index: e.target.parentNode.getAttribute("id"),
+      title: this.state.recipes[index].title,
+      ingredients: this.state.recipes[index].ingredients
     });
   }
   
   submitEdit(){
+    var index = this.state.index;
     console.log(typeof this.state.ingredients);
     var updatedRecipes = this.state.recipes;
     updatedRecipes[index].title=this.state.title;
