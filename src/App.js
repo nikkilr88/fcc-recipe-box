@@ -1,4 +1,5 @@
 /* global $ */
+/* global localStorage */
 
 import React from 'react';
 import './App.css';
@@ -14,7 +15,7 @@ class App extends React.Component{
       title: '',
       ingredients: '',
       ingredientsArr: [],
-      recipes: []
+      recipes: localStorage.getItem("recipes") === null ? [] : JSON.parse(localStorage.getItem("recipes"))
     };
     this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleChange = this.handleChange.bind(this);
@@ -22,6 +23,11 @@ class App extends React.Component{
     this.handleDelete = this.handleDelete.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
     this.submitEdit = this.submitEdit.bind(this);
+  }
+  
+  componentDidMount(){
+    //localStorage.removeItem("recipes");
+    //console.log(JSON.parse(localStorage.getItem("recipes")));
   }
   
   handleChange(e) {
@@ -43,11 +49,11 @@ class App extends React.Component{
   handleSubmit() {
     var updatedRecipes = this.state.recipes;
     updatedRecipes.unshift({title: this.state.title, ingredients: this.state.ingredientsArr});
-  
+    localStorage.setItem("recipes", JSON.stringify(updatedRecipes))
     this.setState({
 			title: '',
       ingredients: '',
-      recipes: updatedRecipes
+      recipes: JSON.parse(localStorage.getItem("recipes"))
 		});
 		
 		console.log(this.state.recipes)
@@ -59,9 +65,10 @@ class App extends React.Component{
   
   handleDelete(value) {
     var updatedRecipes = this.state.recipes;
-    delete updatedRecipes[value];
+    updatedRecipes.splice(value, 1);
+    localStorage.setItem("recipes", JSON.stringify(updatedRecipes));
     this.setState({
-      recipes: updatedRecipes
+      recipes: JSON.parse(localStorage.getItem("recipes"))
     });
   }
   
@@ -85,11 +92,13 @@ class App extends React.Component{
     } else {
       updatedRecipes[index].ingredients=this.state.ingredients;
     }
+    
+    localStorage.setItem("recipes", JSON.stringify(updatedRecipes));
 
     this.setState({
       title: '',
       ingredients: '',
-      recipes: updatedRecipes
+      recipes: JSON.parse(localStorage.getItem("recipes"))
     });
 
   }
